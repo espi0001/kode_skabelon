@@ -61,6 +61,8 @@ nav {
 .burger {
   display: none;
 }
+
+/* maximum 800px */
 @media screen and (max-width: 800px) {
   .menu {
     display: none;

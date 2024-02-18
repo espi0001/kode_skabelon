@@ -28,25 +28,24 @@ footer {
 
 /* TEKST START*/
 h1 {
-  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   color: black;
   font-size: 2rem;
 }
 
 h2 {
-  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   color: black;
   font-size: 1.5rem;
 }
 
 p {
-  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-  color: black;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 1rem;
 }
 
 a {
-  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   color: black;
   font-size: 1rem;
 }
@@ -55,5 +54,6 @@ a:hover {
   color: red;
 }
 
+/* minumum 800px */
 @media (min-width: 800px) {
 }
