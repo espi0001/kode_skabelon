@@ -5,14 +5,32 @@
   box-sizing: border-box;
 }
 
+html {
+  --beige: #fcf2e8;
+  --grøn: #00ab41;
+  --brun: #302718;
+  --rødbrun: #b03711;
+  --lysegrøn: #aecc9f;
+  --font_sort: #000000;
+  --font_hvid: #ffffff;
+
+  --overskrift1: Arial, Helvetica, sans-serif;
+  --tekst1: Arial, Helvetica, sans-serif;
+}
+
 img {
   width: 100%;
   height: auto;
   display: block;
 }
 
+html,
 body {
-  background-color: white;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--beige);
   list-style: none;
 }
 
@@ -22,58 +40,49 @@ main {
 }
 
 footer {
-  background-color: white;
-  color: black;
+  background-color: var(--beige);
+  color: var(--font_sort);
+  text-align: center;
+  margin: 100px;
+}
+
+footer p {
+  max-width: none;
 }
 
 /* TEKST START*/
 h1 {
-  font-family: Arial, Helvetica, sans-serif;
-  color: black;
+  font-family: var(--overskrift1);
+  color: var(--font_sort);
   font-size: 2rem;
 }
 
 h2 {
-  font-family: Arial, Helvetica, sans-serif;
-  color: black;
+  font-family: var(--overskrift1);
+  color: var(--font_sort);
   font-size: 1.5rem;
 }
 
 p {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--tekst1);
+  color: var(--font_sort);
   font-size: 1rem;
+  max-width: 65ch;
+  text-wrap: balance;
 }
 
 a {
-  font-family: Arial, Helvetica, sans-serif;
-  color: black;
+  font-family: var(--tekst1);
+  color: var(--font_sort);
   font-size: 1rem;
+  cursor: pointer;
 }
 
 a:hover {
   color: red;
 }
 
-.link-button {
-  margin-top: 10px;
-  display: inline-block;
-  padding: 3px 15px;
-  color: black;
-  border: 2px solid black;
-
-  text-decoration: none;
-  transition-duration: 0.4s;
-  cursor: pointer;
-}
-
-.link-button:hover {
-  border: 2px solid red;
-  background-color: white;
-  color: black;
-}
-
 /* ___________________________ Breadcrumb ___________________________ */
-/* Style the list */
 ul.breadcrumb {
   /* padding: 10px 16px; */
   list-style: none;
@@ -88,16 +97,16 @@ ul.breadcrumb li {
 /* Add a slash symbol (/) before/behind each list item */
 ul.breadcrumb li + li:before {
   padding: 8px;
-  color: black;
+  color: var(--font_sort);
   content: "/\00a0";
 }
 
 /* Add a color to all links inside the list */
 ul.breadcrumb li a {
-  color: black;
+  color: var(--font_sort);
   text-decoration: none;
-  font-size: 1rem;
-  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.6rem;
+  font-family: var(--tekst1);
 }
 
 ul.breadcrumb li a:hover {
@@ -105,6 +114,138 @@ ul.breadcrumb li a:hover {
   text-decoration: none;
 }
 
-/* minumum 800px */
-@media (min-width: 800px) {
+/* ___________________________ card ___________________________ */
+article {
+  display: contents;
+}
+
+article img {
+  width: 100%;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+}
+
+article :not(:first-child) {
+  padding: 0 20px;
+}
+
+article :last-child {
+  padding-bottom: 20px;
+}
+
+.card_design {
+  display: grid;
+  /* skift ud med variabel bredde */
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+  grid-template-rows: auto;
+}
+
+.card_design a {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: subgrid; /* her vælger jeg at grid'et skal komme fra min parent */
+  grid-row: span 4; /* hele artiklen fylder 4 rækker af parents rækker  */
+  height: 100%;
+  font-size: 1rem;
+  background-color: var(--font_hvid);
+}
+
+.card_bund {
+  display: grid;
+  place-items: start;
+}
+.card_bund p {
+  margin-top: auto;
+  font-size: 1rem;
+}
+
+a.overlay:hover {
+  background-color: #00000073;
+}
+/* ___________________________ knap ___________________________ */
+.link-button {
+  margin-top: 10px;
+  display: inline-block;
+  padding: 3px 15px;
+  color: var(--font_sort);
+  border: 2px solid black;
+  text-decoration: none;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+.link-button:hover {
+  border: 2px solid red;
+  background-color: var(--beige);
+  color: var(--font_sort);
+}
+
+/* ___________________________ Back to top knap ___________________________ */
+#goTop {
+  position: sticky;
+  bottom: 0;
+  cursor: pointer;
+  color: #00000073;
+}
+
+#goTop:hover {
+  position: sticky;
+  bottom: 0;
+  cursor: pointer;
+  color: var(--font_sort);
+}
+
+/* ___________________________ TABLET  ___________________________*/
+/* reglerne gælder når skærmen er minimum 768px */
+@media screen and (min-width: 768px) {
+  h1 {
+    font-size: 3rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+
+  p {
+    font-size: 1.5rem;
+  }
+  a {
+    font-size: 1.5rem;
+  }
+  footer p {
+    font-size: 1rem;
+  }
+
+  ul.breadcrumb li a {
+    font-size: 0.8rem;
+  }
+}
+
+/* ___________________________ DESKTOP  ___________________________*/
+/* reglerne gælder når skærmen er minimum 1024px */
+@media screen and (min-width: 1024px) {
+  h1 {
+    font-size: 4rem;
+  }
+
+  h2 {
+    font-size: 3rem;
+  }
+
+  p {
+    font-size: 1.8rem;
+  }
+
+  a {
+    font-size: 1.8rem;
+  }
+
+  footer p {
+    font-size: 1.1rem;
+  }
+
+  ul.breadcrumb li a {
+    font-size: 1rem;
+  }
 }
